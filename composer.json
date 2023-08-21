@@ -1,0 +1,15 @@
+{
+    "name": "Followme",
+    "description": "Permet d&#39;enregistrer des liens d&#39;information à suivre",
+    "type": "project",
+    "license": "AGPL",
+    "authors": [
+        {
+            "name": "Benjamin AIMARD"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.4"
+    }
+}

@@ -1,0 +1,349 @@
+#app {
+	display: flex;
+	width: 100%;
+}
+
+#hello {
+	margin-top:10px;
+	margin-left:5px;
+	/*display:inline;*/
+	width: 100%;
+	font-size:12px;
+	text-align:justify;
+}
+
+#actufollowme {
+	/*margin-top:20px;
+	margin-left:50px;*/
+	width:100%;
+	display:block;
+	text-align:justify;
+}
+
+#formatNews {
+	display: block;
+	width:80%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-family: monospace;
+	white-space: pre-wrap;
+}
+
+#insert {
+	display:block;
+}
+
+#navigation {
+	margin-top:10px;
+	margin-left:10px;
+	margin-right: 10px;
+}
+
+.supprfollowme {
+	border: 0px;
+	margin-left:10px;
+}
+
+#app-navigation:not(.hidden) ul li button {
+	display:block;
+	width: 100%;
+}
+
+
+@media only screen and (max-width: 768px) {
+	#app-navigation:not(.hidden) + #app-content {
+		margin-left:0;
+	}
+}
+
+/*  ------ Fenêtre modale ------ */
+.modal {
+	position: absolute;
+	background-color: white;
+	width: 70%;
+	border-radius: 5px;
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1)
+}
+
+.modal .counter {
+	text-align: right;
+}
+
+.modal > form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.modal > form > .header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2em;
+}
+
+.modal > form > .header > h2 {
+	margin: 0;
+
+}
+
+.modal > form > .header > .fermer_modal#croix {
+	display: flex;
+	align-items: center;
+}
+
+.modal .fermer_modal#croix {
+	position: relative;
+	left: 0px;
+	background-color: transparent;
+	border: none;
+	font-size: 2em;
+}
+
+.modal > form > .footer {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 2em;
+}
+
+.modal > form > .footer > button {
+	display: flex;
+	align-items: center;
+	padding: 0 1em;
+	height: 3em;
+	vertical-align: middle;
+}
+
+.modal > form > .footer > button > .jam {
+	font-size: 1.5em;
+}
+
+.modal > form > .section-wrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 2em 2em ;
+
+}
+
+.modal > form > .section-wrapper > .section {
+	display: flex;
+	margin: 1em 0em;
+	padding: 0;
+}
+
+.modal > form > .section-wrapper > .section > * {
+	flex-basis: 100%;
+}
+
+.modal > form > .section-wrapper > .section.wrap {
+	flex-wrap: wrap;
+}
+
+.modal > form > .section-wrapper > .section.reverse {
+	flex-direction: row-reverse;
+}
+
+.modal > form > .section-wrapper > .section > #datefollowme {
+	flex-grow: 1;
+	flex: 0 1 auto;
+}
+
+.modal > form > .section-wrapper > .section > #lienfollowme {
+	flex: 1 0 auto;
+}
+
+.modal > form > .section-wrapper > .section > #descriptionfollowme {
+	width: 100%;
+}
+
+/* ------ Actualité ------- */
+.actualite {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: solid 1px #E0E0E0;
+	border-left: solid 5px transparent;
+	transition: all 0.15s ease;
+}
+
+.actualite.selected {
+	border-left-color: var(--accent-color);
+}
+
+.actualite .actualite-content {
+	display: flex;
+	flex-direction: column;
+	width: 98%;
+}
+
+.actualite .actualite-section {
+	width: 98%;
+}
+
+
+.actualite .actualite-content .actualite-section,.actualiteDescription,.actualiteCategorie,.actualite-footer {
+	margin: 1em;
+}
+
+.actualite .modiffollowme {
+	margin-left:auto;
+}
+
+/* .actualite .actualite-footer {
+	display: flex;
+	flex-direction: row;
+	align-self: flex-start;
+}
+
+.actualite .actualite-footer .like-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.actualite .actualite-footer .jam {
+	font-size: 12px;
+	margin: 0 0.5em;
+
+	cursor: pointer;
+}
+
+.actualite .actualite-footer .jam.likeactu {
+	transition: all 0.3s ease;
+}
+
+
+.actualite .actualite-footer .jam.likeactu.active {
+	color: #E82C0C;
+} */
+
+.actualite .actualite-content .actualiteDescription {
+	display: flex;
+	flex-direction: column;
+}
+
+.actualite .actualite-content .actualite-section {
+	flex-direction: row;
+	font-size: 12px;
+	display: flex;
+	align-self: flex-start;
+}
+
+.actualite .actualite-content .actualite-section .lien {
+	color: var(--secondary-color);
+	text-decoration: underline;
+}
+
+.actualite .actualite-content .actualite-section .date {
+	margin-right: 1em;
+}
+
+.actualite .actualite-content .actualiteDescription .auteur {
+	margin-top: 0.5em;
+	font-weight: bold;
+}
+
+.actualite .tag {
+	align-self: flex-start;
+	padding: 0.5em 1em;
+	margin-right: 1em;
+	border-radius: 100px;
+	/* background-color: rgba(255,107,51,1); */
+	background-color: white;
+	border: solid 1px var(--accent-color);
+	color: var(--accent-color);
+	font-weight: bold;
+}
+
+/*
+* Barre d'édition
+*/
+.edit_barre {
+	border: 1px solid #E0E0E0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-radius: 10px;
+	padding: 1em;
+	margin: 1em 0;
+}
+
+.edit_barre .jam {
+	font-size: 12px;
+	cursor: pointer;
+}
+
+
+/************** Modal Newsletter ******************/
+.modal-background{
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(170,170,170,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#newsletter-modal {
+	display: flex;
+	flex-basis: 100%;
+}
+
+#newsletter-modal .section {
+	flex-direction: column;
+}
+
+#newsletter-modal .section > * {
+	flex-basis: 100%;
+	flex-grow: 1;
+}
+
+#contenu {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal > form > .section-wrapper > .section > #contenu > #titreNewsletter, #descriptionNewsletter {
+	width: 100%;
+}
+
+#preview li {
+	list-style-type: none;
+}
+
+#newsletter-modal #preview #date-lien {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+#newsletter-modal #preview #date-lien .date {
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+#newsletter-modal #preview #date-lien #lien {
+	color: var(--secondary-color);
+	text-decoration: underline;
+}
+
+
+#getNbArticleByUser td {
+	border: solid 1px #E0E0E0;
+	width: 55px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+#getNbArticleByUser th {
+	border: solid 1px #E0E0E0;
+	width: 55px;
+	padding-left:5px;
+	padding-right:5px;
+}

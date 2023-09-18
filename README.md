@@ -1,5 +1,3 @@
-App password test : LtLz hFrY TPBK G8jh cG4p rbsG
-
 # Followme
 Place this app in **nextcloud/apps/**
 

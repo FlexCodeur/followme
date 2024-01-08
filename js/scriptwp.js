@@ -22,12 +22,12 @@ $("#Generate").click(function(){
 		$.each(response, function(arrayID, myresp) {
 			//On coupe les news par categorie
 			if(mycategorie!=myresp.categorie){
-				res+='<h3><strong>'+myresp.categorie+'</strong></h3>';
+				res+='<hr class="wp-block-separator is-style-wide"/><h2><strong>'+myresp.categorie+'</strong></h2><br>';
 				mycategorie=myresp.categorie;
 			}
 			//On coupe le lien pour que ça soit jolie
 			if(myresp.lien.length > 29){reslien=myresp.lien.substring(0, 30)+'...';}else{reslien=myresp.lien;}
-			res+='<strong>'+ format_date(myresp.date) + '<a title="'+myresp.lien+'" href="'+myresp.lien+'"> <u>'+reslien+'</u></a></strong> : '+ myresp.description+'<br/>';
+			res+='<p><strong>'+ format_date(myresp.date) + '</strong><br> <strong><a title="'+myresp.lien+'" href="'+myresp.lien+'"> <u>'+reslien+'</u></a></strong><br> '+ myresp.description+'<br><br>';
 
 
 		});

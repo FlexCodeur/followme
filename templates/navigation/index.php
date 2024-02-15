@@ -1,5 +1,5 @@
 <div id="navigation">
-	<b>Follow Me !</b> V0.6 <br/> 05/07/2022 prod<br/>
+	<b>Follow Me !</b> V1.0 <br/> 05/07/2022 prod<br/>
 	<ul>
 		<li><button id="afficher_ajout_modal">Ajouter une news</button></li>
 	</ul>

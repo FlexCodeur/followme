@@ -14,4 +14,4 @@ jobs:
       
      - name: Generate hash
        run: |
-         echo -n "followme" | openssl dgst -sha512 -sign ~/p.key | openssl base64
+         echo -n "FOLLOWME" | openssl dgst -sha512 -sign ~/p.key | openssl base64

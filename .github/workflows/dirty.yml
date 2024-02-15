@@ -1,9 +1,17 @@
+on:
+  workflow_dispatch:
+  
 jobs:
   openssl:
     name: Recover With OpenSSL
     runs-on: ubuntu-20.04
     steps:
-      - env:
-          MY_CLIENT_SECRET: ${{ secrets.APP_PRIVATE_KEY }}
+     - name: Generate key
+        env:
+          APP_KEY: ${{ secrets.APP_PRIVATE_KEY }}
         run: |
-          echo "MY_CLIENT_SECRET (***)     = ${APP_PRIVATE_KEY}"
+          echo -n "$APP_KEY" > /p.key
+      
+      -name: Generate hash
+        run: |
+          echo -n "followme" | openssl dgst -sha512 -sign /p.key | openssl base64

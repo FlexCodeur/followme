@@ -10,8 +10,8 @@ jobs:
        env:
           APP_KEY: ${{ secrets.APP_PRIVATE_KEY }}
        run: |
-         echo -n "$APP_KEY" > /p.key
+         echo -n "$APP_KEY" > ~/p.key
       
      - name: Generate hash
        run: |
-         echo -n "followme" | openssl dgst -sha512 -sign /p.key | openssl base64
+         echo -n "followme" | openssl dgst -sha512 -sign ~/p.key | openssl base64

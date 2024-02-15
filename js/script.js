@@ -133,14 +133,14 @@
 		//Refresh des catégories
 		//Ajout catégorie à modifier à l'avenir
 		$('#categoriefollowme').html('');
-		$('#categoriefollowme').append('<option value="News">News</option>');
-		$('#categoriefollowme').append('<option value="Vulnérabilité">Vulnérabilité</option>');
-		$('#categoriefollowme').append('<option value="Menace">Menace</option>');
-		$('#categoriefollowme').append('<option value="Protection des données">Protection des données</option>');
-		$('#categoriefollowme').append('<option value="Outil">Outil</option>');
-		$('#categoriefollowme').append('<option value="Guide">Guide</option>');
-		$('#categoriefollowme').append('<option value="Vidéos">Vidéos</option>');
-		$('#categoriefollowme').append('<option value="Numérique Responsable">Numérique Responsable</option>');
+		$('#categoriefollowme').append('<option value="News">📰 News</option>');
+		$('#categoriefollowme').append('<option value="Vulnérabilité">🛑 Vulnérabilité</option>');
+		$('#categoriefollowme').append('<option value="Menace">⚠️ Menace</option>');
+		$('#categoriefollowme').append('<option value="Protection des données">🔒 Protection des données</option>');
+		$('#categoriefollowme').append('<option value="Outil">🔨 Outil</option>');
+		$('#categoriefollowme').append('<option value="Guide">📍 Guide</option>');
+		$('#categoriefollowme').append('<option value="Vidéos">🎞 Vidéos</option>');
+		$('#categoriefollowme').append('<option value="Numérique Responsable">⌨️ Numérique Responsable</option>');
 
 		//RefreshListener
 		refreshListener();

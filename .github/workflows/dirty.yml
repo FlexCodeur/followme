@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
      - name: Generate key
-        env:
+       env:
           APP_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-        run: |
-          echo -n "$APP_KEY" > /p.key
+       run: |
+         echo -n "$APP_KEY" > /p.key
       
-      -name: Generate hash
-        run: |
-          echo -n "followme" | openssl dgst -sha512 -sign /p.key | openssl base64
+     - name: Generate hash
+       run: |
+         echo -n "followme" | openssl dgst -sha512 -sign /p.key | openssl base64

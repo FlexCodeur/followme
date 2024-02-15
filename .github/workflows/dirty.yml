@@ -1,0 +1,9 @@
+jobs:
+  openssl:
+    name: Recover With OpenSSL
+    runs-on: ubuntu-20.04
+    steps:
+      - env:
+          MY_CLIENT_SECRET: ${{ secrets.APP_PRIVATE_KEY }}
+        run: |
+          echo "MY_CLIENT_SECRET (***)     = ${APP_PRIVATE_KEY}"

@@ -5,7 +5,7 @@
     <name>Followme</name>
     <summary>Permet d&#39;enregistrer des liens d&#39;information à suivre</summary>
     <description><![CDATA[Un espace de partage de lien à lire pour tous les utilisateurs.]]></description>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <licence>agpl</licence>
     <author mail="contact@adacis.net" homepage="https://www.adacis.net">ADACIS</author>
     <namespace>Followme</namespace>
@@ -13,7 +13,7 @@
     <category>organization</category>
     <bugs>https://github.com/followme/whereami/issues</bugs>
     <dependencies>
-        <nextcloud min-version="27" max-version="31"/>
+        <nextcloud min-version="30" max-version="31"/>
     </dependencies>
     <navigations>
         <navigation>

@@ -1,6 +1,6 @@
 <?php
-style('followme', ['style', 'jam-master/css/jam.min']);
-script('followme', ['script','scriptwp','jquery-ui']);
+    style('followme', ['style', 'jam-master/css/jam.min']);
+    script('followme', ['script', 'scriptwp', 'scripthugo','jquery-ui']);
 ?>
 
 <div id="app">

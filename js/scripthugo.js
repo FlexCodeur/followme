@@ -37,10 +37,11 @@ document.getElementById('GenerateToHugo').addEventListener('click', function () 
 		lines.push('Outil : 🔨');
 		lines.push('Guide : 📍');
 		lines.push('Vidéos : 🎞');
-		lines.push('Numérique Responsable : ♻️\n');
+		lines.push('Numérique Responsable : ♻️');
+		lines.push('IA : 🧠\n');
 
 		lines.push('# Contenu du fichier YAML à copier pour Hugo');
-		lines.push('🛈 Pensez à remplir les données du top news et la clé title des articles');
+		lines.push('🛈 Pensez à remplir les données du top news');
 		lines.push('---------------------------\n');
 
 		lines.push('content:');
@@ -51,6 +52,7 @@ document.getElementById('GenerateToHugo').addEventListener('click', function () 
 			lines.push(`  top_news${i}:`);
 			lines.push(`  top_news${i}_image:`);
 			lines.push(`  top_news${i}_description:`);
+			lines.push(`  top_news${i}_link:`);
 		}
 		lines.push(''); // Saut de ligne
 
@@ -62,14 +64,16 @@ document.getElementById('GenerateToHugo').addEventListener('click', function () 
 			const key = slugifyCategory(category);
 			lines.push(`  items_${key}:`);
 
-			items.forEach(item => {
-				const date = formatDate(new Date(item.date * 1000).toISOString());
-				lines.push(`    - date: ${date}`);
-				lines.push(`      title:`);
-				lines.push(`      link: ${item.lien}`);
-				lines.push(`      description: ${item.description}`);
-				lines.push(''); // Saut de ligne
-			});
+            items
+                .sort((a, b) => b.date - a.date) // décroissant : plus récent en premier
+                .forEach(item => {
+                    const date = formatDate(new Date(item.date * 1000).toISOString());
+                    lines.push(`    - date: ${date}`);
+                    lines.push(`      title: ${item?.title ?? ''}`);
+                    lines.push(`      link: ${item.lien}`);
+                    lines.push(`      description: ${item.description}`);
+                    lines.push(''); // Saut de ligne
+                });
 		});
 
 		const result = lines.join('\n');

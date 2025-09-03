@@ -72,6 +72,11 @@
 		actualiteSection.append(spanModif);
 		actualiteSection.append(spanSupp);
 
+        var actualiteTitle = document.createElement("div");
+        actualiteTitle.setAttribute('class', 'actualiteTitle');
+        var pTitle = document.createElement("p");
+        pTitle.append(document.createTextNode(resp.title ?? ''));
+
 		var actualiteDescription = document.createElement("div");
 		actualiteDescription.setAttribute('class', 'actualiteDescription');
 		var pDescription = document.createElement("p");
@@ -81,6 +86,7 @@
 		actualiteAuteur.append(document.createTextNode(resp.utilisateur));
 		actualiteAuteur.setAttribute('class', 'auteur');
 
+        actualiteDescription.append(pTitle);
 		actualiteDescription.append(pDescription);
 		actualiteDescription.append(actualiteAuteur);
 
@@ -141,6 +147,7 @@
 		$('#categoriefollowme').append('<option value="Guide">📍 Guide</option>');
 		$('#categoriefollowme').append('<option value="Vidéos">🎞 Vidéos</option>');
 		$('#categoriefollowme').append('<option value="Numérique Responsable">⌨️ Numérique Responsable</option>');
+		$('#categoriefollowme').append('<option value="IA">🧠 IA</option>');
 
 		//RefreshListener
 		refreshListener();
@@ -210,11 +217,12 @@
 
 		montime=String(getTimestamp($('#datefollowme').val())/1000)
 		var actualite = {
-			date: montime,
-			lien: $('#lienfollowme').val(),
-			description: $('#descriptionfollowme').val(),
-			categorie: $('#categoriefollowme').val(),
-			idArticle: $(this).attr('data-id-article'),
+            date: montime,
+            lien: $('#lienfollowme').val(),
+            description: $('#descriptionfollowme').val(),
+            categorie: $('#categoriefollowme').val(),
+            title: $('#titlefollowme').val(),
+            idArticle: $(this).attr('data-id-article'),
 		};
 
 		var modal_mode = $(this).attr('data-mode');
@@ -268,7 +276,7 @@
 		if (element.attr('DeleteListener') !== "1") {
 			element.attr('DeleteListener', "1");
 			element.on("click", ".supprfollowme", function(e) {
-				var resp = confirm("Etes-vous sur de vouloir supprimer l'actualité du " + $(this).parents(".actualite").find('#date').html() + ", " + $(this).parents(".actualite").find('#lien').html() +" ?");
+				var resp = confirm("Etes-vous sur de vouloir supprimer l'actualité du " + $(this).parents(".actualite").find('.date').html() + ", " + $(this).parents(".actualite").find('.lien').html() +" ?");
 				if (resp == true) {
 					e.preventDefault();
 					var news = {
@@ -362,10 +370,11 @@
 		var modal = $('#edit_followme');
 		modal.attr('data-id-article', actualite.actu.id);
 		var time = moment(actualite.actu.date*1000).format("YYYY-MM-DD");
-		modal.find('#datefollowme').val(time);
-		modal.find('#lienfollowme').val(actualite.actu.lien)
-		modal.find('#descriptionfollowme').val(actualite.actu.description)
-		modal.find('#categoriefollowme').val(actualite.actu.categorie)
+        modal.find('#titlefollowme').val(actualite.actu.title)
+        modal.find('#datefollowme').val(time);
+        modal.find('#lienfollowme').val(actualite.actu.lien)
+        modal.find('#descriptionfollowme').val(actualite.actu.description)
+        modal.find('#categoriefollowme').val(actualite.actu.categorie)
 	}
 
 	//Effacer la modal

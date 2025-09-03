@@ -154,10 +154,18 @@ class PageController extends Controller {
     * @param string $lien
 	* @param string $description
 	* @param string $categorie
+	* @param string $title
 	*/
-	public function insertActu(string $date, string $lien, string $description, string $categorie) {
+	public function insertActu(string $date, string $lien, string $description, string $categorie, string $title) {
 		 	$nom = $this->nomComplet();
-			$res1 = $this->followmeMapper->insertActu($date,$this->nomComplet(),$lien,$description,$categorie);
+			$res1 = $this->followmeMapper->insertActu(
+                $date,
+                $this->nomComplet(),
+                $lien,
+                $description,
+                $categorie,
+                $title
+            );
 			$res2 = $this->sendRocketChat("$categorie - $nom --> $lien");
 			return new DataResponse(array('msg1' => $res1, 'msg2' => $res2));
 	}
@@ -211,15 +219,18 @@ class PageController extends Controller {
 	* @param string $description
 	* @param string $categorie
 	* @param string $idArticle
+	* @param string $title
 	*/
-	public function updateActu(string $date, string $lien, string $description, string $categorie, string $idArticle) {
+	public function updateActu(string $date, string $lien, string $description, string $categorie, string $idArticle, string $title) {
 		return new DataResponse($this->followmeMapper->updateActu(
-											$date,
-											$this->nomComplet(),
-											$lien,
-											$description,
-											$categorie,
-											$idArticle));
+            $date,
+            $this->nomComplet(),
+            $lien,
+            $description,
+            $categorie,
+            $title,
+            $idArticle
+        ));
 	}
 
 	/**

@@ -58,7 +58,8 @@ Class FollowmeMapper extends QBMapper {
 	/**
 	 * Insertion dans la base de données d'une actualité
 	 */
-	public function insertActu($date,$user_id,$lien,$description,$categorie){
+	public function insertActu($date, $user_id, $lien, $description, $categorie, $title)
+    {
 		$qb = $this->db->getQueryBuilder();
 		$qb->insert($this->getTableName())
 		    ->setValue('date', '?')
@@ -66,11 +67,13 @@ Class FollowmeMapper extends QBMapper {
 		    ->setValue('lien', '?')
 		    ->setValue('description', '?')
 		    ->setValue('categorie', '?')
-		    ->setParameter(0, $date)
+            ->setValue('title', '?')
+            ->setParameter(0, $date)
 		    ->setParameter(1, $user_id)
 		    ->setParameter(2, $lien)
 		    ->setParameter(3, $description)
 		    ->setParameter(4, $categorie)
+            ->setParameter(5, $title)
 		;
 		$qb->execute();
 		return "ok";
@@ -79,13 +82,15 @@ Class FollowmeMapper extends QBMapper {
 	/**
 	 * Modification dans la base de données d'une actualité 
 	 */
-	public function updateActu($date,$user_id,$lien,$description,$categorie,$idArticle){
+	public function updateActu($date, $user_id, $lien, $description, $categorie, $title, $idArticle)
+    {
 		$qb = $this->db->getQueryBuilder();
 		$qb->update($this->getTableName(), 'u')
 				->set('u.date', $qb->createNamedParameter($date))
 			    ->set('u.lien', $qb->createNamedParameter($lien))
 			    ->set('u.description', $qb->createNamedParameter($description))
 			    ->set('u.categorie', $qb->createNamedParameter($categorie))
+			    ->set('u.title', $qb->createNamedParameter($title))
 				->where('u.id = :id')
 				->setParameter('id', $idArticle);
 		$qb->execute();

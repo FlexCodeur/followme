@@ -8,6 +8,9 @@
     </div>
     <hr>
     <div class="section-wrapper">
+        <div class="section">
+            <input required type="text" name="titlefollowme" id="titlefollowme" placeholder="Titre de votre actu"/>
+        </div>
       <div class="section">
         <input required type="date" name="datefollowme" id="datefollowme" placeholder="Date de la news"/>
         <input required type="text" name="lienfollowme" id="lienfollowme" placeholder="Lien de votre actu"/>

@@ -13,6 +13,7 @@ class Followme extends Entity implements JsonSerializable {
 	protected $categorie;
 	protected $test;
 	protected $userId;
+    protected $title;
 
 	public function jsonSerialize(){
 		return[
@@ -22,7 +23,8 @@ class Followme extends Entity implements JsonSerializable {
 			'lien' => $this->lien,
 			'description' => $this->description,
 			'categorie' => $this->categorie,
-			'test' => $this->test
+            'title' => $this->title,
+            'test' => $this->test,
 		];
 	}
 }

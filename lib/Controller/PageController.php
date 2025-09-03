@@ -222,7 +222,15 @@ class PageController extends Controller {
 	* @param string $title
 	*/
 	public function updateActu(string $date, string $lien, string $description, string $categorie, string $idArticle, string $title) {
-		return new DataResponse($this->followmeMapper->updateActu($date, $this->nomComplet(), $lien, $description, $categorie, $idArticle, $title));
+		return new DataResponse($this->followmeMapper->updateActu(
+            $date,
+            $this->nomComplet(),
+            $lien,
+            $description,
+            $categorie,
+            $title,
+            $idArticle
+        ));
 	}
 
 	/**

@@ -35,7 +35,7 @@ class Version6Date20250902103800 extends SimpleMigrationStep {
         $table = $schema->getTable('followme');
 
         if (!$table->hasColumn('title')) {
-            $table->addColumn('title', 'text', [
+            $table->addColumn('title', 'string', [
                 'notnull' => false,
             ]);
         }
